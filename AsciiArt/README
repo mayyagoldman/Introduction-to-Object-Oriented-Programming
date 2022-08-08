@@ -1,0 +1,93 @@
+mayagoldman
+321616401
+
+*****************PART A***********
+SORRY FOR THE EXTRA NUM LINES ON THE SIDE- HAD TO COPY THE README FROM
+EX4_1 SUBMISSION CAUSE I OVERRODE IT
+
+My program adjusts the brightness to each character by:
+5 1. calculateCharArrayBrightness:
+6 Calculates the brightness of each character
+7 in the array using the supplementary method calculateCharBrightness that
+8 firstly converts the char to an image then calculates the brightness using
+9 the given formula TOTAL_WHITE_PIXELS / TOTAL_PIXLES^2
+10 2. calculateArrayLinearStretch:
+11 The latter brightness array is normalized using the linear
+12 stretch method presented
+13 at the course. firstly the brightness array is iterated once to
+14 find the min n max brightness values.
+15 Later, the method calls an auxiliary method calculatedStretch that
+16 computes the normalized brightness value for each pixel by the given formula:
+17 (brightness - min) / (max - min)
+18 3. All is set in terms of characters and their brightnesses.
+19 convertImageToAscii is evoked.
+20 The method computes the appropriate dimensions of the ascii art image
+21 and calls the squareSubImagesOfSize that should break down
+22 the main image to sub-images - each stands for a single char.
+23 4.Iterating through the sub images, each average brightness is calculated using
+24 calculateImageAverageBrightness method.
+25 Then, the char brightness array is iterated
+26 and the absolute value func is used to compute the closest char brightness value
+27 to this particular sub image. After that, the respecting char is placed at the
+28 right position fitting to the sub-image at the asciiArt target image.
+29 5. chooseChars returns convertImageToAscii which returns the desired result
+
+*****************PART B**************************
+////////ascii_art//////////
+In this project, I used the following collections classes:
+HashSet:
+    /////Shell.java////
+    No meaning for duplicate chars, thus HashSet keeps unique representations.
+    private final Set<Character> charSet = new HashSet<>();
+       remove- used to remove a char from the hashset
+       add - used to add a char to the hashset
+       stream : converted a hashset to stream in order to sort it since
+       hashsets are not in order but streams can be sorted
+
+     /////// BrightnessImgCharMatcher.java//////
+     private final HashMap<Image, Float> cache = new HashMap<>();
+     containsKey - to check if the sub-image brightness was already
+     calculated and saved
+     get - obtain previously calculated sub-image brightness
+     put - store in the hash map the calculated sub-image brightness
+String:
+    charAt - accessing specific user input to determine add command type
+    equals - comparing user input to command types
+
+//////Algorithms//////////
+findDuplicate:
+The algorithm uses two flags i , j to find duplicates. i propagates slowly
+ while j propagates twice head of i.
+The loop stops when numList[i] == numList[numList[j]].
+Either i == numList[j], to eliminate this option we go back by setting j = 0
+,keeping old i value and looping back until numList[j] == numList[numList[i]].
+then we return the desire value.
+Runtime: O(1) i , j initialization
+    O(n) first loop
+    O(n) second loop
+uniqueMorseRepresentations:
+The algorithm translates each word to its morse representation.
+All representations are stored in a HashSet which eliminates duplicates.
+After iterating all words, the size of the hashset is returned.
+Collection was helpful in storing unique representation using add method.
+size method yielded the required result.
+Runtime: O(1) initialization of hashset
+        O(n) iterations
+        O(1) initialization of StringBuilder
+        O(S_i) :
+          transferring word to lower case,
+          converting word to char array,
+          iterating through chars of word
+          converting StringBuilder to String
+          O(1):
+            Accessing respecting morse symbol,
+            appending to StringBuilder
+            hashing morse representation to hashset
+        O(1) retrieving Hashset size
+
+        Total: O(n) * O(S_i) = O(S)
+
+
+
+
+

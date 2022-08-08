@@ -1,0 +1,18 @@
+mayagoldman
+321616401
+
+Strategies: 
+whatever: simply picks random x,y coordinates within the range of size until a blank spot is encountered. I considered improving this method by storing a list of available spots and choosing randomly between them however I could not find a way that does not use auxiliray data structures which we have not learned yet. 
+
+clever: implements a more coherent and consistent strategy, filling the board row by row, which increases its chances for a streak highly comparing to the random player. 
+
+snartypamts: strategy is similar to the one of clever, instead it goes column by column starting from the second one. It will always beat clever because it blocks it from a streak in its first SIZE moves, and by the time clever reaches the second row it already won a streak. 
+
+clever vs clever : player1 scored: 250, player2 scored: 250. Draws: 0
+clever vs whatever: player1 scored: 468, player2 scored: 32. Draws: 0
+clever vs smarty: player1 scored: 0, player2 scored: 500. Draws: 0
+smarty vs whatever: player1 scored: 480, player2 scored: 20. Draws: 0
+smarty vs smarty: player1 scored: 250, player2 scored: 250. Draws: 0
+whatever vs whatever: player1 scored: 4971, player2 scored: 4964. Draws: 65
+
+
